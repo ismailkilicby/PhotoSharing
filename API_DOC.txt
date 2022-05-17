@@ -1,0 +1,213 @@
+
+- Register {
+	GET Request {
+		v = version ;
+		resource = auth ;
+		resource_id = register ;
+	}
+
+	POST Request {
+		username ;
+		email ;
+		password ;
+		conf_password ;
+		server_key ;
+		gender ; (Optional)
+	}
+
+	ERRORS {
+		5 : Please fill in all required fields ;
+		6 : That username is already taken ;
+		7 : Username must be between 4 and 16 characters ;
+		8 : Username contains invalid characters ;
+		9 : That email is already exists ;
+		10 : E-mail contains invalid characters ;
+		11 : Password does not match ;
+		12 : Password is too short ;
+	}
+}
+
+**********************************************************************************************************************************************
+
+- Login {
+	GET Request {
+		v = version ;
+		resource = auth ;
+		resource_id = login ;
+	}
+
+	POST Request {
+		username ;
+		password ;
+		server_key ;
+	}
+
+	ERRORS {
+		1 : Error: 400 API Version Not Found ;
+		2 : Please enter your username and password! ;
+		4 : Invalid username or password! ;
+	}
+}
+
+**********************************************************************************************************************************************
+
+
+- Logout {
+	GET Request {
+		v = version ;
+		resource = auth ;
+		resource_id = logout ;
+	}
+
+	POST Request {
+		access_token ;
+		server_key ;
+	}
+
+	ERRORS {
+		17 : Please Login And Try Again
+	}
+}
+
+
+
+**********************************************************************************************************************************************
+
+
+- Forget Password {
+	GET Request {
+		v = version ;
+		resource = auth ;
+		resource_id = forget ;
+	}
+
+	POST Request {
+		email ;
+		server_key ;
+	}
+
+	ERRORS {
+		5 : Please fill in all required fields ;
+		13 : Email not found ;
+		14 : Sorry There Is Something Wrong!! Please Try Again Later. ;
+	}
+}
+
+
+
+**********************************************************************************************************************************************
+
+
+- Delete Account {
+	GET Request {
+		v = version ;
+		resource = auth ;
+		resource_id = delete_account ;
+	}
+
+	POST Request {
+		user_id ;
+		access_token ;
+		password ;
+		server_key ;
+	}
+
+	ERRORS {
+		16 : please check your details ;
+		17 : Please Login And Try Again ;
+		18 : Wrong Password ;
+	}
+}
+
+
+**********************************************************************************************************************************************
+
+
+- Fetch Blocked Users {
+	GET Request {
+		v = version ;
+		resource = user ;
+		resource_id = fetch_blocked_users ;
+	}
+
+	POST Request {
+		access_token ;
+		server_key ;
+	}
+
+	ERRORS {
+		17 : Please Login And Try Again ;
+	}
+}
+
+
+
+**********************************************************************************************************************************************
+
+
+- Block {
+	GET Request {
+		v = version ;
+		resource = user ;
+		resource_id = block ;
+	}
+
+	POST Request {
+		access_token ;
+		server_key ;
+		user_id ; the user that you want to block him
+	}
+
+	ERRORS {
+		17 : Please Login And Try Again ;
+		20 : Please Enter the user id ;
+	}
+}
+
+
+
+**********************************************************************************************************************************************
+
+
+- Report User {
+	GET Request {
+		v = version ;
+		resource = user ;
+		resource_id = report_user ;
+	}
+
+	POST Request {
+		access_token ;
+		server_key ;
+		user_id ; the user that you want to report him
+		type ; between 1 => 8 (for un report(-1))
+	}
+
+	ERRORS {
+		17 : Please Login And Try Again ;
+		16 : please check your details ;
+	}
+}
+
+
+
+
+**********************************************************************************************************************************************
+
+
+- Fetch Stories {
+	GET Request {
+		v = version ;
+		resource = user ;
+		resource_id = fetch_stories ;
+	}
+
+	POST Request {
+		access_token ;
+		server_key ;
+	}
+
+	ERRORS {
+		17 : Please Login And Try Again ;
+	}
+}

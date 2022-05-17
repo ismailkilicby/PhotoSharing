@@ -1,0 +1,128 @@
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+
+RewriteRule ^settings(?:\/(\w+)\/(\w+)){0,1}(?:\/?|)$ index.php?app=settings&apph=settings&page=$1&user=$2 [QSA]
+RewriteRule ^messages(?:\/?|)$ index.php?app=messages&apph=messages [QSA]
+RewriteRule ^messages/([^\/]+)(?:\/?|)$ index.php?app=messages&apph=messages&uname=$1 [QSA]
+RewriteRule ^welcome(?:\/?|)$ index.php?app=welcome&apph=welcome [QSA]
+RewriteRule ^signup(?:\/?|)$ index.php?app=signup&apph=signup [QSA]
+RewriteRule ^signout(?:\/?|)$ index.php?app=signout&apph=signout [QSA]
+RewriteRule ^explore(?:\/?|)$ index.php?app=explore&apph=explore [QSA]
+RewriteRule ^reels(?:\/?|)$ index.php?app=reels&apph=reels [QSA]
+RewriteRule ^blog(?:\/?|)$ index.php?app=blog&apph=blog [QSA]
+RewriteRule ^blog/category/(\d+)(?:\/?)$ index.php?app=blog&apph=blog&id=$1 [QSA]
+RewriteRule ^blog/article/(\d+)(?:\/?)$ index.php?app=article&apph=article&id=$1 [QSA]
+RewriteRule ^blog/new$ index.php?app=blog&apph=blog&new=true [QSA]
+RewriteRule ^blog/update/(\d+)(?:\/?)$ index.php?app=blog&apph=blog&new=false&id=$1 [QSA]
+RewriteRule ^forgot(?:\/?|)$ index.php?app=welcome&apph=forgot [QSA]
+RewriteRule ^explore/people(?:\/?|)$ index.php?app=explore&apph=people [QSA]
+RewriteRule ^explore/tags/([^\/]+)(\/?|)$ index.php?app=explore&apph=tags&tag=$1 [QSA]
+RewriteRule ^post/(\d+)(?:\/?)$ index.php?app=posts&apph=view_post&pid=$1 [QSA]
+RewriteRule ^store(?:\/(\w+)\/(\w+)){0,1}(?:\/?|)$ index.php?app=store&apph=store&page=$2&user=$1 [QSA]
+RewriteRule ^store/(\d+)(?:\/?)$ index.php?app=store&apph=store&pid=$1 [QSA]
+RewriteRule ^video_call/([^\/]+)(\/|)$ index.php?app=video_call&apph=video_call&id=$1 [QSA]
+RewriteRule ^embed/(\d+)(?:\/?)$ index.php?app=posts&apph=view_post&type=embed&pid=$1 [QSA]
+RewriteRule ^co/(.*)$ index.php?app=confirm&apph=confirm_email&code=$1 [QSA]
+#RewriteRule ^confirm/(.*)$ index.php?app=confirm&apph=confirm_email&code=$1 [QSA]
+RewriteRule ^$ index.php?app=home&apph=home [QSA]
+
+RewriteRule ^reset-password/(.*)$ index.php?app=welcome&apph=reset&code=$1 [QSA]
+
+RewriteRule ^aj/(.*)/(.*)$ ajax.php?app=$1&a=$2 [QSA]
+RewriteRule ^about-us(\/?|)$ index.php?app=terms&apph=terms&page=about-us [QSA]
+RewriteRule ^terms-of-use(\/?|)$ index.php?app=terms&apph=terms&page=terms-of-use [QSA]
+RewriteRule ^privacy-and-policy(\/?|)$ index.php?app=terms&apph=terms&page=privacy-and-policy [QSA]
+RewriteRule ^contact_us(\/?|)$ index.php?app=terms&apph=terms&page=contact_us [QSA]
+RewriteRule ^admin-panel(?:\/([a-zA-Z0-9_-]{0,50})){0,1}$ admincp.php?page=$1 [QSA]
+RewriteRule ^endpoints/(.*)/(.*)/(.*)$ endpoints.php?v=$1&resource=$2&resource_id=$3 [QSA]
+RewriteRule ^startup$ index.php?app=startup&apph=startup [QSA]
+RewriteRule ^startup/(.*)$ index.php?app=startup&apph=startup&page=$1 [QSA]
+
+RewriteRule ^go_pro(?:\/?|)$ index.php?app=go_pro&apph=go_pro [QSA]
+RewriteRule ^upgraded(?:\/?|)$ index.php?app=upgraded&apph=upgraded [QSA]
+RewriteRule ^oops(?:\/?|)$ index.php?app=oops&apph=oops [QSA]
+RewriteRule ^ads(?:\/?|)$ index.php?app=ads&apph=ads [QSA]
+RewriteRule ^ads/(.*)$ index.php?app=ads&apph=ads&page=$1 [QSA]
+RewriteRule ^edit_ad/(.*)$ index.php?app=edit_ad&apph=edit_ad&id=$1 [QSA]
+RewriteRule ^account_analytics(?:\/?|)$ index.php?app=account_analytics&apph=account_analytics [QSA]
+RewriteRule ^funding_acquisition(?:\/?|)$ index.php?app=funding_acquisition&apph=funding_acquisition [QSA]
+RewriteRule ^manage_funding_acquisition(?:\/?|)$ index.php?app=manage_funding_acquisition&apph=manage_funding_acquisition [QSA]
+RewriteRule ^funding(?:\/?|)$ index.php?app=funding&apph=funding [QSA]
+RewriteRule ^user_funding/(.*)$ index.php?app=user_funding&apph=user_funding&user=$1 [QSA]
+RewriteRule ^funding/(.*)$ index.php?app=funding&apph=funding&id=$1 [QSA]
+RewriteRule ^edit_funding/(.*)$ index.php?app=edit_funding&apph=edit_funding&id=$1 [QSA]
+
+RewriteRule ^load/messages/(.*)$ ajax_loading.php?app=messages&apph=messages&uname=$1 [QSA]
+RewriteRule ^load/(.*)/(general|delete|password|profile|notifications|privacy|verification|manage_sessions|blocked)(?:\/?|)$ ajax_loading.php?app=settings&apph=settings&user=$1&page=$2 [QSA]
+RewriteRule ^load/(.*)/(following|followers|posts|favourites|subscriptions|reels)(?:\/?|)$ ajax_loading.php?app=profile&apph=profile&uname=$1&page=$2 [QSA]
+RewriteRule ^load/(.*)/(store)(?:\/?|)$ ajax_loading.php?app=store&apph=store&user=$1&page=$2 [QSA]
+RewriteRule ^load/terms/(.*)/(.*)$ ajax_loading.php?app=terms&apph=terms&page=$2 [QSA]
+RewriteRule ^load/posts/(view_post)/(.*)$ ajax_loading.php?app=posts&apph=view_post&pid=$2 [QSA]
+RewriteRule ^load/(.*)/(.*)/(.*)$ ajax_loading.php?app=$1&apph=$2&uname=$3 [QSA]
+RewriteRule ^load/(.*)/(.*)$ ajax_loading.php?app=$1&apph=$2 [QSA]
+
+
+
+
+RewriteRule ^404(\/?|)$ index.php?app=404&apph=404 [QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^\/]+)(\/|)$  index.php?app=profile&apph=profile&uname=$1 [QSA]
+
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)/(following|followers|posts|favourites|boosted_posts|subscriptions|reels)(?:\/?|)$ index.php?app=profile&apph=profile&uname=$1&page=$2 [QSA]
+
+#RewriteRule ^/(.*)$ index.php?app=profile&apph=profile&uname=$1 [QSA]
+#RewriteRule ^/(.*)/(following|followers|posts|favourites|boosted_posts|subscriptions|reels)(?:\/?|)$ index.php?app=profile&apph=profile&uname=$1&page=$2 [QSA]
+
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE text/javascript
+  AddOutputFilterByType DEFLATE text/xml
+  AddOutputFilterByType DEFLATE text/plain
+  AddOutputFilterByType DEFLATE image/x-icon
+  AddOutputFilterByType DEFLATE image/svg+xml
+  AddOutputFilterByType DEFLATE application/rss+xml
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/x-javascript
+  AddOutputFilterByType DEFLATE application/xml
+  AddOutputFilterByType DEFLATE application/xhtml+xml
+  AddOutputFilterByType DEFLATE application/x-font
+  AddOutputFilterByType DEFLATE application/x-font-truetype
+  AddOutputFilterByType DEFLATE application/x-font-ttf
+  AddOutputFilterByType DEFLATE application/x-font-otf
+  AddOutputFilterByType DEFLATE application/x-font-opentype
+  AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
+  AddOutputFilterByType DEFLATE font/ttf
+  AddOutputFilterByType DEFLATE font/otf
+  AddOutputFilterByType DEFLATE font/opentype
+  BrowserMatch ^Mozilla/4 gzip-only-text/html
+  BrowserMatch ^Mozilla/4\.0[678] no-gzip
+  BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+</IfModule>
+<IfModule mod_security.c>
+  SecFilterScanPOST Off
+</IfModule>
+## EXPIRES CACHING ##
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType image/jpg "access plus 1 year"
+ExpiresByType image/jpeg "access plus 1 year"
+ExpiresByType image/gif "access plus 1 year"
+ExpiresByType image/png "access plus 1 year"
+ExpiresByType text/css "access plus 1 month"
+ExpiresByType application/pdf "access plus 1 month"
+ExpiresByType text/x-javascript "access plus 1 month"
+ExpiresByType application/x-shockwave-flash "access plus 1 month"
+ExpiresByType image/x-icon "access plus 1 year"
+ExpiresDefault "access plus 2 days"
+</IfModule>
+## EXPIRES CACHING ##

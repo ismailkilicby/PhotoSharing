@@ -1,0 +1,43 @@
+1 - Error: 404 API Version Not Found
+2 - Please enter your username and password!
+3 - please activate your account!
+4 - Invalid username or password!
+5 - Please fill in all required fields
+6 - That username is already taken
+7 - Username must be between 4 and 16 characters
+8 - Username contains invalid characters
+9 - That email is already exists
+10 - E-mail contains invalid characters
+11 - Password does not match
+12 - Password is too short
+13 - Email not found
+14 - Sorry There Is Something Wrong!! Please Try Again Later.
+15 - Access Token or User id Can not be Empty
+16 - please check your details
+17 - Please Login And Try Again
+18 - Wrong Password
+19 - Server Key Error
+20 - Please Enter the user id
+21 - An unknown error occurred. Please try again later!
+22 - Your post exceeds the maximum upload size for this site.
+23 - You have reached the daily update limit for your story. maximum limit is 20
+24 - Please Enter the story id
+25 - First name is too long Please enter a valid first name
+26 - Last name is too long Please enter a valid last name
+27 - Your text about you is too long The maximum number of text characters is 150.
+28 - Your website url is invalid Please enter a valid url
+29 - Your facebook profile url is invalid Please enter a valid url
+30 - Your google profile url is invalid Please enter a valid url
+31 - Your twitter profile url is invalid Please enter a valid url
+32 - Please the hash cn not be empty
+33 - Please Enter a word to search
+34 - File format not supported
+35 - you can not send empty message
+36 - hash id con not be empty
+37 - please select the messages that you want to delete them
+38 - Please Enter the post id
+39 - Please Enter the comment id
+40 - post_id should not be empty
+41 - you can not remove the post you are not the post owner
+42 - the text should not be empty
+43 - you can not edit the post you are not the post owner
